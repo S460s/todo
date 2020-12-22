@@ -1,1 +1,3 @@
-console.log("heelo");
+import { projectForm } from "./projectsForm";
+
+projectForm.showPopUp();
