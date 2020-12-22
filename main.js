@@ -1,1 +1,1 @@
-console.log("heelo");
+(()=>{"use strict";(function(){const t=document.getElementById("addProjectBtn"),e=document.getElementById("projectPopUp"),n=function(){e.style.cssText="display: flex"};return{showPopUp:function(){t.addEventListener("click",n)}}})().showPopUp()})();
