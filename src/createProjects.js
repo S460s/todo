@@ -10,7 +10,7 @@ const createProjects = (function () {
 	const deleteProject = function (project) {
 		let num = projectList.indexOf(project);
 		projectList.splice(num, 1);
-		projectsDOM.start(projectList);
+		projectsDOM.start(projectList, deleteProject);
 	};
 
 	const handleAddProject = function (e) {

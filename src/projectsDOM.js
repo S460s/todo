@@ -7,10 +7,6 @@ const projectsDOM = (function () {
 		}
 	};
 
-	const deleteProject = function (target, callback) {
-		target.addEventListener("click", callback);
-	};
-
 	const displayProject = function (project, callback) {
 		const card = document.createElement("div");
 		card.setAttribute("id", "projectCard");
@@ -23,10 +19,13 @@ const projectsDOM = (function () {
 		deleteBtn.textContent = "x";
 		deleteBtn.setAttribute("id", "deleteProjectBtn");
 
+		deleteBtn.addEventListener("click", () => {
+			callback(project);
+		});
+
 		projectSection.appendChild(card);
 		card.appendChild(projectTitle);
 		card.appendChild(deleteBtn);
-		deleteProject(deleteBtn, callback);
 	};
 
 	const renderProjects = function (projectList, callback) {
