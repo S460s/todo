@@ -21,12 +21,16 @@ const projectForm = (function () {
 		cancelBtn.addEventListener("click", handleHideForm);
 	};
 
+	const addProject = function (callback) {
+		form.addEventListener("submit", callback);
+	};
+
 	const startForm = function () {
 		showPopUp();
 		hideForm();
 	};
 
-	return { startForm };
+	return { startForm, addProject };
 })();
 
 export { projectForm };
