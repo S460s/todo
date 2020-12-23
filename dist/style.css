@@ -109,9 +109,21 @@
 
 #todoSide {
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 }
 
 #currentProject {
 	font-size: 5vh;
+}
+
+#addTodoBtn {
+	display: none;
+}
+
+/*todo PopUp*/
+
+#todoPopUp {
+	display: none;
+	border: 1px solid black;
 }
