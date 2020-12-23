@@ -7,13 +7,19 @@ const createProjects = (function () {
 	const titleInput = document.getElementById("projectTitleInput");
 	const projectList = [];
 
+	const deleteProject = function (project) {
+		let num = projectList.indexOf(project);
+		projectList.splice(num, 1);
+		projectsDOM.start(projectList);
+	};
+
 	const handleAddProject = function (e) {
 		e.preventDefault();
 		let newProject = new Project(titleInput.value);
 		projectList.push(newProject);
 		console.table(projectList);
 		form.reset();
-		projectsDOM.start(projectList);
+		projectsDOM.start(projectList, deleteProject);
 	};
 
 	const startLogic = function () {
