@@ -104,3 +104,14 @@
 	font-size: 20px;
 	cursor: pointer;
 }
+
+/*Todo Side*/
+
+#todoSide {
+	display: flex;
+	justify-content: center;
+}
+
+#currentProject {
+	font-size: 5vh;
+}
