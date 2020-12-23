@@ -1,3 +1,3 @@
 import { projectForm } from "./projectsForm";
 
-projectForm.showPopUp();
+projectForm.startForm();
