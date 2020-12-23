@@ -1,5 +1,6 @@
 import { Project } from "./projects";
 import { projectForm } from "./projectsForm";
+import { projectsDOM } from "./projectsDOM";
 
 const createProjects = (function () {
 	const form = document.getElementById("projectForm");
@@ -12,6 +13,7 @@ const createProjects = (function () {
 		projectList.push(newProject);
 		console.table(projectList);
 		form.reset();
+		projectsDOM.start(projectList);
 	};
 
 	const startLogic = function () {
