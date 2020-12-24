@@ -1,5 +1,3 @@
-import { selectProjectLogic } from "./selectProject";
-
 const projectsDOM = (function () {
 	const projectSection = document.getElementById("projectSection");
 
@@ -28,8 +26,6 @@ const projectsDOM = (function () {
 		projectSection.appendChild(card);
 		card.appendChild(projectTitle);
 		card.appendChild(deleteBtn);
-
-		selectProjectLogic.selectProject(project, card);
 	};
 
 	const renderProjects = function (projectList, callback) {
