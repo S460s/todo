@@ -15,8 +15,12 @@ const projectsDOM = (function () {
 		projectTitle.setAttribute("id", "projectTitle");
 		projectTitle.textContent = project.title;
 
-		const deleteBtn = document.createElement("p");
-		deleteBtn.textContent = "x";
+		const editBtn = document.createElement("button");
+		editBtn.setAttribute("id", "projectEditBtn");
+		editBtn.textContent = "Edit";
+
+		const deleteBtn = document.createElement("button");
+		deleteBtn.textContent = "Delete";
 		deleteBtn.setAttribute("id", "deleteProjectBtn");
 
 		deleteBtn.addEventListener("click", () => {
@@ -25,6 +29,7 @@ const projectsDOM = (function () {
 
 		projectSection.appendChild(card);
 		card.appendChild(projectTitle);
+		card.appendChild(editBtn);
 		card.appendChild(deleteBtn);
 	};
 
