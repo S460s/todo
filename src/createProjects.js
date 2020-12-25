@@ -6,6 +6,7 @@ import { localStorageLogic } from "./localStorage";
 const createProjects = (function () {
 	const form = document.getElementById("projectForm");
 	const titleInput = document.getElementById("projectTitleInput");
+	const addProjectBtn = document.getElementById("addProjectBtn");
 	const projectList = [];
 
 	const checkStorage = function () {
@@ -29,6 +30,8 @@ const createProjects = (function () {
 		console.table(projectList);
 		form.reset();
 		projectsDOM.start(projectList, deleteProject);
+		form.style.cssText = "display: none";
+		addProjectBtn.style.cssText = "display: block";
 	};
 
 	const startLogic = function () {

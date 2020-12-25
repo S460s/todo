@@ -1,11 +1,12 @@
 const projectForm = (function () {
 	const addProjectBtn = document.getElementById("addProjectBtn");
-	const popUp = document.getElementById("projectPopUp");
 	const cancelBtn = document.getElementById("cancelNewProject");
 	const form = document.getElementById("projectForm");
 
 	const handleShowPopUp = function () {
-		popUp.style.cssText = "display: flex";
+		console.log("show");
+		form.style.cssText = "display: flex";
+		addProjectBtn.style.cssText = "display: none";
 	};
 
 	const showPopUp = function () {
@@ -13,7 +14,10 @@ const projectForm = (function () {
 	};
 
 	const handleHideForm = function () {
-		popUp.style.cssText = "display: none";
+		console.log("hide");
+		form.style.cssText = "display: none";
+		addProjectBtn.style.cssText = "display: block";
+
 		form.reset();
 	};
 
