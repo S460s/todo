@@ -1,3 +1,5 @@
+import { createProjects } from "./createProjects";
+
 const projectsDOM = (function () {
 	const projectSection = document.getElementById("projectSection");
 
@@ -7,7 +9,7 @@ const projectsDOM = (function () {
 		}
 	};
 
-	const displayProject = function (project, callback) {
+	const displayProject = function (project) {
 		const card = document.createElement("div");
 		card.setAttribute("id", "projectCard");
 
@@ -24,7 +26,8 @@ const projectsDOM = (function () {
 		deleteBtn.setAttribute("id", "deleteProjectBtn");
 
 		deleteBtn.addEventListener("click", () => {
-			callback(project);
+			createProjects.deleteProject(project);
+			start(createProjects.projectList);
 		});
 
 		projectSection.appendChild(card);
@@ -33,15 +36,15 @@ const projectsDOM = (function () {
 		card.appendChild(deleteBtn);
 	};
 
-	const renderProjects = function (projectList, callback) {
+	const renderProjects = function (projectList) {
 		projectList.forEach((project) => {
-			displayProject(project, callback);
+			displayProject(project);
 		});
 	};
 
-	const start = function (projectList, callback) {
+	const start = function (projectList) {
 		clearDiv(projectSection);
-		renderProjects(projectList, callback);
+		renderProjects(projectList);
 	};
 
 	return { start };
