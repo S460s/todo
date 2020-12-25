@@ -32,6 +32,13 @@ const projectsDOM = (function () {
 		});
 	};
 
+	const showBtns = function (card) {
+		card.addEventListener("click", () => {
+			card.children[1].style.display = "block";
+			card.children[2].style.display = "block";
+		});
+	};
+
 	const editProjectEvent = function (card, title, editBtn, delBtn, project) {
 		editBtn.addEventListener("click", () => {
 			addProjectBtn.style.display = "none";
@@ -77,6 +84,7 @@ const projectsDOM = (function () {
 		card.appendChild(editBtn);
 		card.appendChild(deleteBtn);
 
+		showBtns(card);
 		deleteProjectEvent(deleteBtn, project);
 		editProjectEvent(card, projectTitle, editBtn, deleteBtn, project);
 	};
