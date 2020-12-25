@@ -1,4 +1,4 @@
-import { createProjects } from "./createProjects";
+import { projectLogic } from "./createProjects";
 
 const projectsDOM = (function () {
 	const projectSection = document.getElementById("projectSection");
@@ -7,6 +7,13 @@ const projectsDOM = (function () {
 		while (div.childNodes.length !== 0) {
 			div.removeChild(div.lastChild);
 		}
+	};
+
+	const deleteProjectEvent = function (btn, project) {
+		btn.addEventListener("click", () => {
+			projectLogic.deleteProject(project);
+			start(projectLogic.projectList);
+		});
 	};
 
 	const displayProject = function (project) {
@@ -25,10 +32,7 @@ const projectsDOM = (function () {
 		deleteBtn.textContent = "Delete";
 		deleteBtn.setAttribute("id", "deleteProjectBtn");
 
-		deleteBtn.addEventListener("click", () => {
-			createProjects.deleteProject(project);
-			start(createProjects.projectList);
-		});
+		deleteProjectEvent(deleteBtn, project);
 
 		projectSection.appendChild(card);
 		card.appendChild(projectTitle);
@@ -42,9 +46,9 @@ const projectsDOM = (function () {
 		});
 	};
 
-	const start = function (projectList) {
+	const start = function () {
 		clearDiv(projectSection);
-		renderProjects(projectList);
+		renderProjects(projectLogic.projectList);
 	};
 
 	return { start };

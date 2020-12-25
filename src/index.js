@@ -1,23 +1,30 @@
 import { projectForm } from "./projectsForm";
-import { createProjects } from "./createProjects";
+import { projectLogic } from "./createProjects";
 import { projectsDOM } from "./projectsDOM";
+import { localStorageLogic } from "./localStorage";
 
 const appFlow = (function () {
 	const form = document.getElementById("projectForm");
 
+	const checkStorage = function () {
+		if (localStorageLogic.checkStorage(projectLogic.projectList, "projectList")) {
+			projectsDOM.start();
+		}
+	};
+
 	const handleAddProject = function (e) {
 		e.preventDefault();
-		createProjects.handleAddProject();
-		projectsDOM.start(createProjects.projectList);
+		projectLogic.handleAddProject();
+		projectsDOM.start();
 		form.style.cssText = "display: none";
 		addProjectBtn.style.cssText = "display: block";
 		form.reset();
 	};
 
 	const startApp = function () {
+		checkStorage();
 		projectForm.startForm();
 		projectForm.addProject(handleAddProject);
-		createProjects.startLogic();
 	};
 
 	return { startApp };

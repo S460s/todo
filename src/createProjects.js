@@ -1,23 +1,14 @@
 import { Project } from "./projects";
-import { projectForm } from "./projectsForm";
-import { projectsDOM } from "./projectsDOM";
 import { localStorageLogic } from "./localStorage";
 
-const createProjects = (function () {
+const projectLogic = (function () {
 	const titleInput = document.getElementById("projectTitleInput");
 	const projectList = [];
-
-	const checkStorage = function () {
-		if (localStorageLogic.checkStorage(projectList, "projectList")) {
-			projectsDOM.start(projectList, deleteProject);
-		}
-	};
 
 	const deleteProject = function (project) {
 		let num = projectList.indexOf(project);
 		projectList.splice(num, 1);
 		localStorageLogic.populateStorage(projectList, "projectList");
-		//		projectsDOM.start(projectList, deleteProject);
 	};
 
 	const handleAddProject = function () {
@@ -27,11 +18,7 @@ const createProjects = (function () {
 		console.table(projectList);
 	};
 
-	const startLogic = function () {
-		checkStorage();
-	};
-
-	return { startLogic, deleteProject, projectList, handleAddProject };
+	return { deleteProject, projectList, handleAddProject };
 })();
 
-export { createProjects };
+export { projectLogic };
