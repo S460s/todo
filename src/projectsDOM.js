@@ -1,4 +1,5 @@
 import { projectLogic } from "./createProjects";
+import { localStorageLogic } from "./localStorage";
 
 const projectsDOM = (function () {
 	const projectSection = document.getElementById("projectSection");
@@ -19,9 +20,14 @@ const projectsDOM = (function () {
 
 	const saveProjectEvent = function (btn, titleInput, project) {
 		btn.addEventListener("click", () => {
-			project.title = titleInput.value;
-			start();
-			addProjectBtn.style.display = "block";
+			if (titleInput.value) {
+				project.title = titleInput.value;
+				localStorageLogic.populateStorage(projectLogic.projectList, "projectList");
+				start();
+				addProjectBtn.style.display = "block";
+			} else {
+				alert("Please enter a name for the project");
+			}
 		});
 	};
 
@@ -33,9 +39,23 @@ const projectsDOM = (function () {
 	};
 
 	const showBtns = function (card) {
-		card.addEventListener("click", () => {
+		card.addEventListener("mouseenter", () => {
 			card.children[1].style.display = "block";
 			card.children[2].style.display = "block";
+		});
+	};
+
+	const hideBtns = function (card) {
+		card.addEventListener("mouseleave", () => {
+			card.children[1].style.display = "none";
+			card.children[2].style.display = "none";
+		});
+	};
+
+	const stopEdit = function (card) {
+		card.addEventListener("mouseleave", () => {
+			addProjectBtn.style.display = "block";
+			start();
 		});
 	};
 
@@ -60,6 +80,7 @@ const projectsDOM = (function () {
 
 			saveProjectEvent(saveBtn, editTitle, project);
 			cancelProjectEdit(cancelBtn);
+			stopEdit(card);
 		});
 	};
 
@@ -85,6 +106,7 @@ const projectsDOM = (function () {
 		card.appendChild(deleteBtn);
 
 		showBtns(card);
+		hideBtns(card);
 		deleteProjectEvent(deleteBtn, project);
 		editProjectEvent(card, projectTitle, editBtn, deleteBtn, project);
 	};
