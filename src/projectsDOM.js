@@ -16,6 +16,26 @@ const projectsDOM = (function () {
 		});
 	};
 
+	const editProjectEvent = function (card, title, editBtn, delBtn) {
+		editBtn.addEventListener("click", () => {
+			let editTitle = document.createElement("input");
+			editTitle.setAttribute("type", "text");
+			editTitle.setAttribute("id", "editProjectTitleInpu");
+			editTitle.setAttribute("placeholder", "Project Title");
+			title = card.replaceChild(editTitle, title);
+
+			let saveBtn = document.createElement("button");
+			saveBtn.setAttribute("id", "saveProjectTitleBtn");
+			saveBtn.textContent = "Save";
+			editBtn = card.replaceChild(saveBtn, editBtn);
+
+			let cancelBtn = document.createElement("button");
+			cancelBtn.setAttribute("id", "cancelEditProjectBtn");
+			cancelBtn.textContent = "Cancel";
+			delBtn = card.replaceChild(cancelBtn, delBtn);
+		});
+	};
+
 	const displayProject = function (project) {
 		const card = document.createElement("div");
 		card.setAttribute("id", "projectCard");
@@ -32,12 +52,13 @@ const projectsDOM = (function () {
 		deleteBtn.textContent = "Delete";
 		deleteBtn.setAttribute("id", "deleteProjectBtn");
 
-		deleteProjectEvent(deleteBtn, project);
-
 		projectSection.appendChild(card);
 		card.appendChild(projectTitle);
 		card.appendChild(editBtn);
 		card.appendChild(deleteBtn);
+
+		deleteProjectEvent(deleteBtn, project);
+		editProjectEvent(card, projectTitle, editBtn, deleteBtn);
 	};
 
 	const renderProjects = function (projectList) {
