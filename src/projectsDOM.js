@@ -2,6 +2,7 @@ import { projectLogic } from "./createProjects";
 
 const projectsDOM = (function () {
 	const projectSection = document.getElementById("projectSection");
+	const addProjectBtn = document.getElementById("addProjectBtn");
 
 	const clearDiv = function (div) {
 		while (div.childNodes.length !== 0) {
@@ -16,8 +17,24 @@ const projectsDOM = (function () {
 		});
 	};
 
-	const editProjectEvent = function (card, title, editBtn, delBtn) {
+	const saveProjectEvent = function (btn, titleInput, project) {
+		btn.addEventListener("click", () => {
+			project.title = titleInput.value;
+			start();
+			addProjectBtn.style.display = "block";
+		});
+	};
+
+	const cancelProjectEdit = function (btn) {
+		btn.addEventListener("click", () => {
+			start();
+			addProjectBtn.style.display = "block";
+		});
+	};
+
+	const editProjectEvent = function (card, title, editBtn, delBtn, project) {
 		editBtn.addEventListener("click", () => {
+			addProjectBtn.style.display = "none";
 			let editTitle = document.createElement("input");
 			editTitle.setAttribute("type", "text");
 			editTitle.setAttribute("id", "editProjectTitleInpu");
@@ -33,6 +50,9 @@ const projectsDOM = (function () {
 			cancelBtn.setAttribute("id", "cancelEditProjectBtn");
 			cancelBtn.textContent = "Cancel";
 			delBtn = card.replaceChild(cancelBtn, delBtn);
+
+			saveProjectEvent(saveBtn, editTitle, project);
+			cancelProjectEdit(cancelBtn);
 		});
 	};
 
@@ -58,7 +78,7 @@ const projectsDOM = (function () {
 		card.appendChild(deleteBtn);
 
 		deleteProjectEvent(deleteBtn, project);
-		editProjectEvent(card, projectTitle, editBtn, deleteBtn);
+		editProjectEvent(card, projectTitle, editBtn, deleteBtn, project);
 	};
 
 	const renderProjects = function (projectList) {
