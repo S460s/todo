@@ -87,36 +87,24 @@
 	flex: 2;
 }
 
-#deleteProjectBtn {
+#deleteProjectBtn,
+#cancelEditProjectBtn {
 	font-size: 10px;
 	flex: 1;
 	margin-left: 20px;
 }
 
-#projectEditBtn {
+#projectEditBtn,
+#saveProjectTitleBtn {
 	font-size: 10px;
 	flex: 1;
 }
 
-/*Todo Side*/
+/*Project Edit*/
 
-#todoSide {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-#currentProject {
-	font-size: 5vh;
-}
-
-#addTodoBtn {
-	display: none;
-}
-
-/*todo PopUp*/
-
-#todoPopUp {
-	display: none;
-	border: 1px solid black;
+#editProjectTitleInpu {
+	width: 1px;
+	height: 20px;
+	margin-right: 10px;
+	flex: 2;
 }
