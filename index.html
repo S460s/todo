@@ -8,18 +8,17 @@
 	</head>
 	<body>
 		<div id="content">
-			<div id="projectPopUp">
-				<h2 id="projectFormTitle">Project Form</h2>
-				<form id="projectForm" action="">
-					<input id="projectTitleInput" type="text" placeholder="Project Title" required />
-					<button id="createProjectBtn" class="projectFormBtn" type="submit">Add Project</button>
-					<button id="cancelNewProject" class="projectFormBtn" type="button">Cancel</button>
-				</form>
-			</div>
-
 			<div id="projectSide">
 				<h1 id="projectsSectionTitle">Projects</h1>
 				<button id="addProjectBtn">Add new project</button>
+
+				<div id="projectPopUp">
+					<form id="projectForm" action="">
+						<input id="projectTitleInput" type="text" placeholder="Project Title" required />
+						<button id="createProjectBtn" class="projectFormBtn" type="submit">Add</button>
+						<button id="cancelNewProject" class="projectFormBtn" type="button">Cancel</button>
+					</form>
+				</div>
 
 				<div id="projectSection"></div>
 			</div>
