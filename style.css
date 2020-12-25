@@ -84,25 +84,30 @@
 /*Project Cards*/
 
 #projectCard {
-	border: black 1px solid;
-	width: 20vw;
-	max-width: 10em;
-	height: 5vh;
-
+	width: 30vw;
+	max-width: 400px;
+	height: fit-content;
 	display: flex;
-	align-items: center;
-	justify-content: space-around;
-
+	justify-content: flex-end;
 	margin-top: 20px;
+	border: 3px green solid;
 }
 
 #projectTitle {
 	font-size: 20px;
+	justify-content: flex-start;
+	flex: 2;
 }
 
 #deleteProjectBtn {
-	font-size: 20px;
-	cursor: pointer;
+	font-size: 10px;
+	flex: 1;
+	margin-left: 20px;
+}
+
+#projectEditBtn {
+	font-size: 10px;
+	flex: 1;
 }
 
 /*Todo Side*/
