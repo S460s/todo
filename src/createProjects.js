@@ -18,7 +18,12 @@ const projectLogic = (function () {
 		console.table(projectList);
 	};
 
-	return { deleteProject, projectList, handleAddProject };
+	const updateProject = function (project, value) {
+		project.title = value;
+		localStorageLogic.populateStorage(projectLogic.projectList, "projectList");
+	};
+
+	return { deleteProject, projectList, handleAddProject, updateProject };
 })();
 
 export { projectLogic };

@@ -1,5 +1,4 @@
 import { projectLogic } from "./createProjects";
-import { localStorageLogic } from "./localStorage";
 
 const projectsDOM = (function () {
 	const projectSection = document.getElementById("projectSection");
@@ -11,18 +10,18 @@ const projectsDOM = (function () {
 		}
 	};
 
-	const deleteProjectEvent = function (btn, project) {
+	const deleteProjectEvent = function (btn, project, card) {
 		btn.addEventListener("click", () => {
 			projectLogic.deleteProject(project);
-			start(projectLogic.projectList);
+			card.remove();
 		});
 	};
 
 	const saveProjectEvent = function (btn, titleInput, project, card) {
 		btn.addEventListener("click", () => {
 			if (titleInput.value) {
-				project.title = titleInput.value;
-				localStorageLogic.populateStorage(projectLogic.projectList, "projectList");
+				projectLogic.updateProject(project, titleInput.value);
+				checkForAdd();
 				clearDiv(card);
 				createElementParts(card, project);
 
@@ -33,30 +32,25 @@ const projectsDOM = (function () {
 		});
 	};
 
-	const cancelProjectEdit = function (btn) {
+	const cancelProjectEdit = function (btn, card, project) {
 		btn.addEventListener("click", () => {
-			start();
+			clearDiv(card);
+			createElementParts(card, project);
+			checkForAdd();
+		});
+	};
+
+	const checkForAdd = function () {
+		let btns = document.querySelectorAll("#saveProjectTitleBtn");
+		if (btns) {
+			addProjectBtn.style.display = "none";
+		} else {
 			addProjectBtn.style.display = "block";
-		});
-	};
-
-	const showBtns = function (card) {
-		card.addEventListener("mouseenter", () => {
-			card.children[1].style.display = "block";
-			card.children[2].style.display = "block";
-		});
-	};
-
-	const hideBtns = function (card) {
-		card.addEventListener("mouseleave", () => {
-			card.children[1].style.display = "none";
-			card.children[2].style.display = "none";
-		});
+		}
 	};
 
 	const editProjectEvent = function (card, title, editBtn, delBtn, project) {
 		editBtn.addEventListener("click", () => {
-			addProjectBtn.style.display = "none";
 			let editTitle = document.createElement("input");
 			editTitle.setAttribute("type", "text");
 			editTitle.setAttribute("id", "editProjectTitleInpu");
@@ -74,8 +68,9 @@ const projectsDOM = (function () {
 			cancelBtn.textContent = "Cancel";
 			delBtn = card.replaceChild(cancelBtn, delBtn);
 
+			checkForAdd();
 			saveProjectEvent(saveBtn, editTitle, project, card);
-			cancelProjectEdit(cancelBtn);
+			cancelProjectEdit(cancelBtn, card, project);
 		});
 	};
 
@@ -96,7 +91,7 @@ const projectsDOM = (function () {
 		card.appendChild(editBtn);
 		card.appendChild(deleteBtn);
 
-		deleteProjectEvent(deleteBtn, project);
+		deleteProjectEvent(deleteBtn, project, card);
 		editProjectEvent(card, projectTitle, editBtn, deleteBtn, project);
 	};
 
@@ -104,11 +99,7 @@ const projectsDOM = (function () {
 		const card = document.createElement("div");
 		card.setAttribute("id", "projectCard");
 		projectSection.appendChild(card);
-
 		createElementParts(card, project);
-
-		showBtns(card);
-		hideBtns(card);
 	};
 
 	const renderProjects = function (projectList) {
@@ -122,7 +113,7 @@ const projectsDOM = (function () {
 		renderProjects(projectLogic.projectList);
 	};
 
-	return { start };
+	return { start, displayProject };
 })();
 
 export { projectsDOM };
