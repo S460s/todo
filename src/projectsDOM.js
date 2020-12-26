@@ -21,7 +21,6 @@ const projectsDOM = (function () {
 		btn.addEventListener("click", () => {
 			if (titleInput.value) {
 				projectLogic.updateProject(project, titleInput.value);
-				checkForAdd();
 				clearDiv(card);
 				createElementParts(card, project);
 
@@ -36,17 +35,7 @@ const projectsDOM = (function () {
 		btn.addEventListener("click", () => {
 			clearDiv(card);
 			createElementParts(card, project);
-			checkForAdd();
 		});
-	};
-
-	const checkForAdd = function () {
-		let btns = document.querySelectorAll("#saveProjectTitleBtn");
-		if (btns) {
-			addProjectBtn.style.display = "none";
-		} else {
-			addProjectBtn.style.display = "block";
-		}
 	};
 
 	const editProjectEvent = function (card, title, editBtn, delBtn, project) {
@@ -68,7 +57,6 @@ const projectsDOM = (function () {
 			cancelBtn.textContent = "Cancel";
 			delBtn = card.replaceChild(cancelBtn, delBtn);
 
-			checkForAdd();
 			saveProjectEvent(saveBtn, editTitle, project, card);
 			cancelProjectEdit(cancelBtn, card, project);
 		});

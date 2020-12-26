@@ -14,8 +14,7 @@ const appFlow = (function () {
 
 	const handleAddProject = function (e) {
 		e.preventDefault();
-		projectLogic.handleAddProject();
-		projectsDOM.start();
+		projectsDOM.displayProject(projectLogic.handleAddProject());
 		form.style.cssText = "display: none";
 		addProjectBtn.style.cssText = "display: block";
 		form.reset();

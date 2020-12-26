@@ -16,6 +16,7 @@ const projectLogic = (function () {
 		projectList.push(newProject);
 		localStorageLogic.populateStorage(projectList, "projectList");
 		console.table(projectList);
+		return newProject;
 	};
 
 	const updateProject = function (project, value) {
