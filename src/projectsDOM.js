@@ -18,12 +18,14 @@ const projectsDOM = (function () {
 		});
 	};
 
-	const saveProjectEvent = function (btn, titleInput, project) {
+	const saveProjectEvent = function (btn, titleInput, project, card) {
 		btn.addEventListener("click", () => {
 			if (titleInput.value) {
 				project.title = titleInput.value;
 				localStorageLogic.populateStorage(projectLogic.projectList, "projectList");
-				start();
+				clearDiv(card);
+				createElementParts(card, project);
+
 				addProjectBtn.style.display = "block";
 			} else {
 				alert("Please enter a name for the project");
@@ -52,13 +54,6 @@ const projectsDOM = (function () {
 		});
 	};
 
-	const stopEdit = function (card) {
-		card.addEventListener("mouseleave", () => {
-			addProjectBtn.style.display = "block";
-			start();
-		});
-	};
-
 	const editProjectEvent = function (card, title, editBtn, delBtn, project) {
 		editBtn.addEventListener("click", () => {
 			addProjectBtn.style.display = "none";
@@ -66,6 +61,7 @@ const projectsDOM = (function () {
 			editTitle.setAttribute("type", "text");
 			editTitle.setAttribute("id", "editProjectTitleInpu");
 			editTitle.setAttribute("placeholder", "Project Title");
+			editTitle.value = project.title;
 			title = card.replaceChild(editTitle, title);
 
 			let saveBtn = document.createElement("button");
@@ -78,16 +74,12 @@ const projectsDOM = (function () {
 			cancelBtn.textContent = "Cancel";
 			delBtn = card.replaceChild(cancelBtn, delBtn);
 
-			saveProjectEvent(saveBtn, editTitle, project);
+			saveProjectEvent(saveBtn, editTitle, project, card);
 			cancelProjectEdit(cancelBtn);
-			stopEdit(card);
 		});
 	};
 
-	const displayProject = function (project) {
-		const card = document.createElement("div");
-		card.setAttribute("id", "projectCard");
-
+	const createElementParts = function (card, project) {
 		const projectTitle = document.createElement("p");
 		projectTitle.setAttribute("id", "projectTitle");
 		projectTitle.textContent = project.title;
@@ -100,15 +92,23 @@ const projectsDOM = (function () {
 		deleteBtn.textContent = "Delete";
 		deleteBtn.setAttribute("id", "deleteProjectBtn");
 
-		projectSection.appendChild(card);
 		card.appendChild(projectTitle);
 		card.appendChild(editBtn);
 		card.appendChild(deleteBtn);
 
-		showBtns(card);
-		hideBtns(card);
 		deleteProjectEvent(deleteBtn, project);
 		editProjectEvent(card, projectTitle, editBtn, deleteBtn, project);
+	};
+
+	const displayProject = function (project) {
+		const card = document.createElement("div");
+		card.setAttribute("id", "projectCard");
+		projectSection.appendChild(card);
+
+		createElementParts(card, project);
+
+		showBtns(card);
+		hideBtns(card);
 	};
 
 	const renderProjects = function (projectList) {
