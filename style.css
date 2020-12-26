@@ -102,7 +102,7 @@
 
 #projectEditBtn,
 #deleteProjectBtn {
-	display: none;
+	display: block;
 }
 
 /*Project Edit*/
