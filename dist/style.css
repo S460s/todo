@@ -129,3 +129,22 @@
 #todoSideTitle {
 	text-align: center;
 }
+
+/* Priorities*/
+
+#todoPopUp {
+	margin: auto;
+	width: 90%;
+	margin-top: 10vh;
+}
+
+#todoForm {
+	display: flex;
+	justify-content: space-between;
+}
+#todoBtns {
+	display: flex;
+}
+#cancelNewTodo {
+	margin-left: 10px;
+}

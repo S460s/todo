@@ -2,6 +2,7 @@ import { projectForm } from "./projectsForm";
 import { projectLogic } from "./createProjects";
 import { projectsDOM } from "./projectsDOM";
 import { localStorageLogic } from "./localStorage";
+import { todoForm } from "./todoForm";
 
 const appFlow = (function () {
 	const form = document.getElementById("projectForm");
@@ -24,6 +25,7 @@ const appFlow = (function () {
 		checkStorage();
 		projectForm.startForm();
 		projectForm.addProject(handleAddProject);
+		todoForm.startForm();
 	};
 
 	return { startApp };
