@@ -12,7 +12,7 @@ const projectLogic = (function () {
 	};
 
 	const handleAddProject = function () {
-		let newProject = new Project(titleInput.value);
+		let newProject = new Project(titleInput.value, []);
 		projectList.push(newProject);
 		localStorageLogic.populateStorage(projectList, "projectList");
 		console.table(projectList);

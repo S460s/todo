@@ -1,5 +1,5 @@
 const localStorageLogic = (function () {
-	const setList = function (array, listName) {
+	const getList = function (array, listName) {
 		let objects = JSON.parse(localStorage.getItem(listName));
 		objects.forEach((item) => {
 			array.push(item);
@@ -14,12 +14,12 @@ const localStorageLogic = (function () {
 		if (!localStorage.getItem(listName)) {
 			array = [];
 		} else {
-			setList(array, listName);
+			getList(array, listName);
 			return true;
 		}
 	};
 
-	return { setList, populateStorage, checkStorage };
+	return { getList, populateStorage, checkStorage };
 })();
 
 export { localStorageLogic };

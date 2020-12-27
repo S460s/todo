@@ -1,6 +1,7 @@
 class Project {
-	constructor(title) {
+	constructor(title, todoList) {
 		this.title = title;
+		this.todoList = todoList;
 	}
 }
 

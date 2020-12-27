@@ -113,3 +113,19 @@
 	margin-right: 10px;
 	flex: 2;
 }
+
+/*Todo Side*/
+
+#currentProject {
+	text-align: center;
+	margin-top: 20px;
+}
+
+#addTodoBtn {
+	display: block;
+	margin: 10vh auto;
+}
+
+#todoSideTitle {
+	text-align: center;
+}

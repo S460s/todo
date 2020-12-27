@@ -1,4 +1,5 @@
 import { projectLogic } from "./createProjects";
+import { selectProjectLogic } from "./selectProject";
 
 const projectsDOM = (function () {
 	const projectSection = document.getElementById("projectSection");
@@ -32,14 +33,16 @@ const projectsDOM = (function () {
 	};
 
 	const cancelProjectEdit = function (btn, card, project) {
-		btn.addEventListener("click", () => {
+		btn.addEventListener("click", (e) => {
+			e.stopPropagation();
 			clearDiv(card);
 			createElementParts(card, project);
 		});
 	};
 
 	const editProjectEvent = function (card, title, editBtn, delBtn, project) {
-		editBtn.addEventListener("click", () => {
+		editBtn.addEventListener("click", (e) => {
+			e.stopPropagation();
 			let editTitle = document.createElement("input");
 			editTitle.setAttribute("type", "text");
 			editTitle.setAttribute("id", "editProjectTitleInpu");
@@ -88,6 +91,8 @@ const projectsDOM = (function () {
 		card.setAttribute("id", "projectCard");
 		projectSection.appendChild(card);
 		createElementParts(card, project);
+		console.log(project);
+		selectProjectLogic.selectProject(card, project);
 	};
 
 	const renderProjects = function (projectList) {
