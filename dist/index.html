@@ -32,13 +32,11 @@
 					<form id="todoForm" action="">
 						<input type="text" placeholder="Title" id="todoTitleInput" />
 						<input type="date" id="dateInput" />
-						<div>
-							<input type="radio" name="priority" id="high" value="3" /><label for="high"></label>
-							<input type="radio" name="priority" id="medium" value="2" /><label
-								for="medium"
-							></label>
-							<input type="radio" name="priority" id="low" value="1" /><label for="low"></label>
-						</div>
+						<select name="" id="priorities">
+							<option name="" id="high">High Priority</option>
+							<option value="medium">Medium Priority</option>
+							<option value="low">Low Priority</option>
+						</select>
 						<input type="text" placeholder="Description" id="todoDescInput" />
 						<div id="todoBtns">
 							<button type="submit" id="createNewTodo">Create</button>

@@ -2,10 +2,11 @@ const todoForm = (function () {
 	const addTodoBtn = document.getElementById("addTodoBtn");
 	const cancelBtn = document.getElementById("cancelNewTodo");
 	const form = document.getElementById("todoForm");
+	const popUp = document.getElementById("todoPopUp");
 
 	const handleShowPopUp = function () {
 		console.log("show");
-		form.style.cssText = "display: flex";
+		popUp.style.cssText = "display: flex";
 		addTodoBtn.style.cssText = "display: none";
 	};
 
@@ -15,7 +16,7 @@ const todoForm = (function () {
 
 	const handleHideForm = function () {
 		console.log("hide");
-		form.style.cssText = "display: none";
+		popUp.style.cssText = "display: none";
 		addTodoBtn.style.cssText = "display: block";
 
 		form.reset();
@@ -34,7 +35,7 @@ const todoForm = (function () {
 		hideForm();
 	};
 
-	return { startForm };
+	return { startForm, addTodo };
 })();
 
 export { todoForm };
