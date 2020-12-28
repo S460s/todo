@@ -1,4 +1,5 @@
 import { projectLogic } from "./createProjects";
+import { selectProjectLogic } from "./selectProject";
 
 const projectsDOM = (function () {
 	const projectSection = document.getElementById("projectSection");
@@ -83,6 +84,10 @@ const projectsDOM = (function () {
 
 		deleteProjectEvent(deleteBtn, project, card);
 		editProjectEvent(card, projectTitle, editBtn, deleteBtn, project);
+
+		card.addEventListener("click", () => {
+			selectProjectLogic.selectProject(project);
+		});
 	};
 
 	const displayProject = function (project) {
@@ -95,6 +100,7 @@ const projectsDOM = (function () {
 	};
 
 	const renderProjects = function (projectList) {
+		selectProjectLogic.defaultProject();
 		projectList.forEach((project) => {
 			displayProject(project);
 		});
