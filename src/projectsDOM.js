@@ -84,6 +84,7 @@ const projectsDOM = (function () {
 
 		deleteProjectEvent(deleteBtn, project, card);
 		editProjectEvent(card, projectTitle, editBtn, deleteBtn, project);
+		selectProjectLogic.selectProject(card, project);
 	};
 
 	const displayProject = function (project) {
@@ -91,8 +92,8 @@ const projectsDOM = (function () {
 		card.setAttribute("id", "projectCard");
 		projectSection.appendChild(card);
 		createElementParts(card, project);
+		console.log("display project, DOM project");
 		console.log(project);
-		selectProjectLogic.selectProject(card, project);
 	};
 
 	const renderProjects = function (projectList) {
