@@ -100,7 +100,6 @@ const projectsDOM = (function () {
 	};
 
 	const renderProjects = function (projectList) {
-		//selectProjectLogic.defaultProject();
 		projectList.forEach((project) => {
 			displayProject(project);
 		});
@@ -110,6 +109,7 @@ const projectsDOM = (function () {
 		clearDiv(projectSection);
 		renderProjects(projectLogic.projectList);
 		selectProjectLogic.submitProjectEvent();
+		selectProjectLogic.defaultProject();
 	};
 
 	return { start, displayProject };

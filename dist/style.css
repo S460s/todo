@@ -149,3 +149,23 @@
 #cancelNewTodo {
 	margin-left: 10px;
 }
+
+/*Todo card*/
+
+#todoList {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#todoCard {
+	border: solid black 1px;
+	width: 90%;
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+}
+
+#todoDelBtn {
+	cursor: pointer;
+}
