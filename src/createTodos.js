@@ -14,8 +14,8 @@ const todoLogic = (function () {
 	const handleAddTodo = function (project) {
 		let newTodo = new Todo(titleInput.value, dueDate.value, "high", description.value);
 		project.todoList.push(newTodo);
+		console.log(project.title);
 		console.table(project.todoList);
-		return newTodo;
 	};
 
 	return { deleteTodo, handleAddTodo };

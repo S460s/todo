@@ -84,10 +84,6 @@ const projectsDOM = (function () {
 
 		deleteProjectEvent(deleteBtn, project, card);
 		editProjectEvent(card, projectTitle, editBtn, deleteBtn, project);
-
-		card.addEventListener("click", () => {
-			selectProjectLogic.selectProject(project);
-		});
 	};
 
 	const displayProject = function (project) {
@@ -97,10 +93,14 @@ const projectsDOM = (function () {
 		createElementParts(card, project);
 		console.log("display project, DOM project");
 		console.log(project);
+
+		card.addEventListener("click", () => {
+			selectProjectLogic.startLogic(project);
+		});
 	};
 
 	const renderProjects = function (projectList) {
-		selectProjectLogic.defaultProject();
+		//selectProjectLogic.defaultProject();
 		projectList.forEach((project) => {
 			displayProject(project);
 		});
@@ -109,6 +109,7 @@ const projectsDOM = (function () {
 	const start = function () {
 		clearDiv(projectSection);
 		renderProjects(projectLogic.projectList);
+		selectProjectLogic.submitProjectEvent();
 	};
 
 	return { start, displayProject };

@@ -2,37 +2,48 @@ import { projectLogic } from "./createProjects";
 import { todoLogic } from "./createTodos";
 
 const selectProjectLogic = (function () {
-	const currentProject = document.getElementById("currentProject");
+	const currentProjectTitle = document.getElementById("currentProject");
 	const addTodoBtn = document.getElementById("addTodoBtn");
 	const todoForm = document.getElementById("todoForm");
+	const popUp = document.getElementById("todoPopUp");
+	const cancelNewTodo = document.getElementById("cancelNewTodo");
+	const todoList = document.getElementById("todoList");
+
+	let currentProject;
 
 	const defaultProject = function () {
 		currentProject.textContent = projectLogic.projectList[0].title;
 	};
+
 	const handleFormSubmission = function (e) {
 		e.preventDefault();
-		todoLogic.handleAddTodo(this);
+		console.log(currentProject);
+		todoLogic.handleAddTodo(currentProject);
 		todoForm.reset();
+		popUp.style.display = "none";
+		addTodoBtn.style.display = "block";
+		//	todoForm.removeEventListener("submit", handleFormSubmission);
 	};
 
-	const handleCreateTodo = function () {
-		todoForm.addEventListener("submit", handleFormSubmission.bind(this));
+	const submitProjectEvent = function () {
+		todoForm.addEventListener("submit", handleFormSubmission);
 	};
 
-	const createTodoEvent = function (project) {
-		addTodoBtn.addEventListener("click", handleCreateTodo.bind(project));
+	const test = function () {
+		console.log(currentProject);
 	};
 
 	const selectProject = function (project) {
-		currentProject.textContent = project.title;
-		createTodoEvent(project);
+		currentProjectTitle.textContent = project.title;
+		currentProject = project;
+		test();
 	};
 
 	const startLogic = function (project) {
 		selectProject(project);
 	};
 
-	return { selectProject, defaultProject };
+	return { startLogic, defaultProject, submitProjectEvent };
 })();
 
 export { selectProjectLogic };
