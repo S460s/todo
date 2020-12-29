@@ -11,6 +11,7 @@ const todoLogic = (function () {
 	const deleteTodo = function (project, todo) {
 		let num = project.todoList.indexOf(todo);
 		project.todoList.splice(num, 1);
+		localStorageLogic.populateStorage(projectLogic.projectList, "projectList");
 	};
 
 	const handleAddTodo = function (project) {
@@ -21,6 +22,9 @@ const todoLogic = (function () {
 
 		console.log(project.title);
 		console.table(project.todoList);
+		console.log("TEST");
+
+		return newTodo;
 	};
 
 	return { deleteTodo, handleAddTodo };

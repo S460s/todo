@@ -6,8 +6,7 @@ This is the second time I am doing the project. The first time the code got pret
 
 \*Things to improve:
 
-1. The deleting project system.
-2. The editing system.
+1. Improve the display logic
 
 ---
 

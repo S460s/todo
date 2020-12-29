@@ -19,11 +19,12 @@ const selectProjectLogic = (function () {
 	const handleFormSubmission = function (e) {
 		e.preventDefault();
 		console.log(currentProject);
-		todoLogic.handleAddTodo(currentProject);
-		todoForm.reset();
 		popUp.style.display = "none";
 		addTodoBtn.style.display = "block";
-		todoDOM.renderTodos(currentProject);
+		let todo = todoLogic.handleAddTodo(currentProject);
+		console.log(todo);
+		todoDOM.displayTodo(todo, currentProject);
+		todoForm.reset();
 	};
 
 	const submitProjectEvent = function () {

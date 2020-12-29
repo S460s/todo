@@ -52,7 +52,7 @@ const todoDOM = (function () {
 		});
 	};
 
-	return { renderTodos };
+	return { renderTodos, displayTodo };
 })();
 
 export { todoDOM };
