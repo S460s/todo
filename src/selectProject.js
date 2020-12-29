@@ -13,6 +13,7 @@ const selectProjectLogic = (function () {
 
 	const defaultProject = function () {
 		currentProject.textContent = projectLogic.projectList[0].title;
+		currentProject = projectLogic.projectList[0];
 	};
 
 	const handleFormSubmission = function (e) {
@@ -29,14 +30,9 @@ const selectProjectLogic = (function () {
 		todoForm.addEventListener("submit", handleFormSubmission);
 	};
 
-	const test = function () {
-		console.log(currentProject);
-	};
-
 	const selectProject = function (project) {
 		currentProjectTitle.textContent = project.title;
 		currentProject = project;
-		test();
 	};
 
 	const startLogic = function (project) {
