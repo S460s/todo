@@ -22,10 +22,14 @@ const todoDOM = (function () {
 		});
 	};
 
-	const displayTodo = function (todo, project) {
-		let card = document.createElement("div");
-		card.setAttribute("id", "todoCard");
+	const cancelEdit = function (btn, card, todo, project) {
+		btn.addEventListener("click", () => {
+			clearDiv(card, 0);
+			displayElements(card, todo, project);
+		});
+	};
 
+	const displayElements = function (card, todo, project) {
 		let title = document.createElement("p");
 		title.setAttribute("id", "todoTitleP");
 		title.textContent = todo.title;
@@ -51,7 +55,6 @@ const todoDOM = (function () {
 		doneCheckbox.setAttribute("id", "doneCheck");
 		doneCheckbox.checked = todo.done;
 
-		todoSection.appendChild(card);
 		card.appendChild(doneCheckbox);
 		card.appendChild(title);
 		card.appendChild(dueDate);
@@ -61,12 +64,19 @@ const todoDOM = (function () {
 
 		deleteTodoEvent(delBtn, todo, project, card);
 		changeStateEvent(todo, doneCheckbox);
-		editTodo(editBtn, card, todo);
+		editTodo(editBtn, card, todo, project);
 	};
 
-	const editTodo = function (btn, card, todo) {
+	const displayTodo = function (todo, project) {
+		let card = document.createElement("div");
+		card.setAttribute("id", "todoCard");
+		todoSection.appendChild(card);
+		displayElements(card, todo, project);
+	};
+
+	const editTodo = function (btn, card, todo, project) {
 		btn.addEventListener("click", () => {
-			clearDiv(card, 1);
+			clearDiv(card, 0);
 			let titleEdit = document.createElement("input");
 			titleEdit.setAttribute("id", "todoTitleEdit");
 			titleEdit.value = todo.title;
@@ -74,7 +84,7 @@ const todoDOM = (function () {
 			let dueDateEdit = document.createElement("input");
 			dueDateEdit.setAttribute("id", "todoDueDateEdit");
 			dueDateEdit.setAttribute("type", "date");
-			dueDateEdit;
+			dueDateEdit.value = todo.dueDate;
 
 			let priorityEdit = document.createElement("select");
 			priorityEdit.setAttribute("id", "todoPriorityEdit");
@@ -91,8 +101,8 @@ const todoDOM = (function () {
 			card.appendChild(titleEdit);
 			card.appendChild(dueDateEdit);
 			card.appendChild(priorityEdit);
+
 			priorityOptions.forEach((opt) => {
-				console.log(opt);
 				let option = document.createElement("option");
 				option.textContent = `${opt} Priority`;
 				option.value = opt;
@@ -100,6 +110,8 @@ const todoDOM = (function () {
 			});
 			card.appendChild(saveEdit);
 			card.appendChild(cancel);
+
+			cancelEdit(cancel, card, todo, project);
 		});
 	};
 
