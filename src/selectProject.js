@@ -17,7 +17,8 @@ const selectProjectLogic = (function () {
 			currentProject = projectLogic.projectList[0];
 			todoDOM.renderTodos(currentProject);
 		} else {
-			currentProjectTitle.textContent = "Looks like there are no projects left.";
+			currentProjectTitle.innerText =
+				'Looks like there are no projects. You can create one by clicking "Add new Project" \n\n (Excuse the bad UI, I will try to make it better later)';
 			addTodoBtn.style.display = "none";
 		}
 	};
