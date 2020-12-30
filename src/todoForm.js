@@ -5,7 +5,6 @@ const todoForm = (function () {
 	const popUp = document.getElementById("todoPopUp");
 
 	const handleShowPopUp = function () {
-		console.log("show");
 		popUp.style.cssText = "display: flex";
 		addTodoBtn.style.cssText = "display: none";
 	};
@@ -15,7 +14,6 @@ const todoForm = (function () {
 	};
 
 	const handleHideForm = function () {
-		console.log("hide");
 		popUp.style.cssText = "display: none";
 		addTodoBtn.style.cssText = "display: block";
 

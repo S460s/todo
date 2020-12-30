@@ -24,6 +24,7 @@ const todoDOM = (function () {
 
 	const cancelEditEvent = function (btn, card, todo, project) {
 		btn.addEventListener("click", () => {
+			card.setAttribute("id", "todoCard");
 			clearDiv(card, 0);
 			displayElements(card, todo, project);
 		});
@@ -32,12 +33,11 @@ const todoDOM = (function () {
 	const saveEditEvent = function (card, btn, todo, project, titleE, dateE, priorityE, descE) {
 		//	let priority = priorities.options[priorities.selectedIndex].text;
 		btn.addEventListener("click", () => {
+			card.setAttribute("id", "todoCard");
 			let title = titleE.value;
 			let date = dateE.value;
 			let priority = priorityE.value;
 			let description = descE.value;
-
-			console.log(title);
 			todoLogic.updateTodo(todo, title, date, priority, description);
 			clearDiv(card, 0);
 			displayElements(card, todo, project);
@@ -92,6 +92,10 @@ const todoDOM = (function () {
 	const editTodo = function (btn, card, todo, project) {
 		btn.addEventListener("click", () => {
 			clearDiv(card, 0);
+			card.setAttribute("id", "test");
+			let editForm = document.createElement("form");
+			editForm.setAttribute("id", "todoEditForm");
+
 			let titleEdit = document.createElement("input");
 			titleEdit.setAttribute("id", "todoTitleEdit");
 			titleEdit.value = todo.title;
@@ -119,9 +123,10 @@ const todoDOM = (function () {
 			description.setAttribute("id", "todoDescription");
 			description.textContent = `Description: ${todo.description}`;
 
-			card.appendChild(titleEdit);
-			card.appendChild(dueDateEdit);
-			card.appendChild(priorityEdit);
+			card.appendChild(editForm);
+			editForm.appendChild(titleEdit);
+			editForm.appendChild(dueDateEdit);
+			editForm.appendChild(priorityEdit);
 
 			priorityOptions.forEach((opt) => {
 				let option = document.createElement("option");
@@ -129,9 +134,9 @@ const todoDOM = (function () {
 				option.value = opt;
 				priorityEdit.append(option);
 			});
-			card.appendChild(saveEdit);
-			card.appendChild(cancel);
-			card.appendChild(description);
+			editForm.appendChild(saveEdit);
+			editForm.appendChild(cancel);
+			editForm.appendChild(description);
 
 			saveEditEvent(
 				card,

@@ -15,8 +15,6 @@ const todoLogic = (function () {
 	};
 
 	const updateTodo = function (todo, title, date, priority, description) {
-		console.log(todo);
-		console.log(title);
 		todo.title = title;
 		todo.dueDate = date;
 		todo.priority = priority;
@@ -34,10 +32,6 @@ const todoLogic = (function () {
 		let newTodo = new Todo(titleInput.value, dueDate.value, priority, description.value);
 		project.todoList.push(newTodo);
 		localStorageLogic.populateStorage(projectLogic.projectList, "projectList");
-
-		console.log(project.title);
-		console.table(project.todoList);
-		console.log("TEST");
 
 		return newTodo;
 	};

@@ -18,11 +18,9 @@ const selectProjectLogic = (function () {
 
 	const handleFormSubmission = function (e) {
 		e.preventDefault();
-		console.log(currentProject);
 		popUp.style.display = "none";
 		addTodoBtn.style.display = "block";
 		let todo = todoLogic.handleAddTodo(currentProject);
-		console.log(todo);
 		todoDOM.displayTodo(todo, currentProject);
 		todoForm.reset();
 	};
