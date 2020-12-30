@@ -36,6 +36,7 @@ const appFlow = (function () {
 		projectForm.startForm();
 		projectForm.addProject(handleAddProject);
 		todoForm.startForm();
+		selectProjectLogic.defaultProject();
 	};
 
 	return { startApp };
