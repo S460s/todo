@@ -19,7 +19,7 @@
 	align-items: center;
 }
 #todoSide {
-	border: 5px green solid;
+	border: 5px black solid;
 	flex: 2;
 }
 
@@ -52,12 +52,10 @@
 }
 
 #createProjectBtn {
-	background-color: rgb(24, 163, 24);
 	color: white;
 	font-weight: 900;
 }
 #cancelNewProject {
-	background-color: tomato;
 	color: white;
 	font-weight: 900;
 }
