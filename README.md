@@ -6,11 +6,11 @@ This is the second time I am doing the project. The first time the code got pret
 
 \*Things to improve:
 
-1. Improve the display logic
+1. Add firebase auth
+2. Sorting feature for the todos.
 
 ---
 
 \*Things Missing:
 
-2. The ability to edit todos
 3. A good UI
