@@ -6,6 +6,7 @@ import { todoForm } from "./todoForm";
 
 const appFlow = (function () {
 	const form = document.getElementById("projectForm");
+	const dateInput = document.getElementById("dateInput");
 
 	const checkStorage = function () {
 		if (localStorageLogic.checkStorage(projectLogic.projectList, "projectList")) {

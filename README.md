@@ -10,24 +10,8 @@ This is the second time I am doing the project. The first time the code got pret
 
 ---
 
-const stopEdit = function (card) {
-card.addEventListener("mouseleave", () => {
-addProjectBtn.style.display = "block";
-start();
-});
-};
+\*Things Missing:
 
-    const showBtns = function (card) {
-    	card.addEventListener("mouseenter", () => {
-    		card.children[1].style.display = "block";
-    		card.children[2].style.display = "block";
-    	});
-    };
-
-    const hideBtns = function (card) {
-    	card.addEventListener("mouseleave", () => {
-    		card.children[0].style.cssText = "margin-right: 0px";
-    		card.children[1].style.display = "none";
-    		card.children[2].style.display = "none";
-    	});
-    };
+1. The ability to see the description of the todo
+2. The ability to edit todos
+3. A good UI

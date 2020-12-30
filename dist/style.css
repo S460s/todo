@@ -169,3 +169,9 @@
 #todoDelBtn {
 	cursor: pointer;
 }
+
+#todoInfo {
+	cursor: pointer;
+}
+#doneCheck {
+}
