@@ -14,6 +14,16 @@ const todoLogic = (function () {
 		localStorageLogic.populateStorage(projectLogic.projectList, "projectList");
 	};
 
+	const updateTodo = function (todo, title, date, priority, description) {
+		console.log(todo);
+		console.log(title);
+		todo.title = title;
+		todo.dueDate = date;
+		todo.priority = priority;
+		todo.description = description;
+		localStorageLogic.populateStorage(projectLogic.projectList, "projectList");
+	};
+
 	const handleChangeState = function (todo, box) {
 		todo.done = box.value;
 		localStorageLogic.populateStorage(projectLogic.projectList, "projectList");
@@ -32,7 +42,7 @@ const todoLogic = (function () {
 		return newTodo;
 	};
 
-	return { deleteTodo, handleAddTodo, handleChangeState };
+	return { deleteTodo, handleAddTodo, handleChangeState, updateTodo };
 })();
 
 export { todoLogic };

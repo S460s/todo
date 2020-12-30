@@ -22,8 +22,23 @@ const todoDOM = (function () {
 		});
 	};
 
-	const cancelEdit = function (btn, card, todo, project) {
+	const cancelEditEvent = function (btn, card, todo, project) {
 		btn.addEventListener("click", () => {
+			clearDiv(card, 0);
+			displayElements(card, todo, project);
+		});
+	};
+
+	const saveEditEvent = function (card, btn, todo, project, titleE, dateE, priorityE, descE) {
+		//	let priority = priorities.options[priorities.selectedIndex].text;
+		btn.addEventListener("click", () => {
+			let title = titleE.value;
+			let date = dateE.value;
+			let priority = priorityE.value;
+			let description = descE.value;
+
+			console.log(title);
+			todoLogic.updateTodo(todo, title, date, priority, description);
 			clearDiv(card, 0);
 			displayElements(card, todo, project);
 		});
@@ -82,8 +97,10 @@ const todoDOM = (function () {
 			titleEdit.value = todo.title;
 
 			let dueDateEdit = document.createElement("input");
+			let today = new Date().toISOString().substr(0, 10);
 			dueDateEdit.setAttribute("id", "todoDueDateEdit");
 			dueDateEdit.setAttribute("type", "date");
+			dueDateEdit.setAttribute("min", today);
 			dueDateEdit.value = todo.dueDate;
 
 			let priorityEdit = document.createElement("select");
@@ -116,7 +133,17 @@ const todoDOM = (function () {
 			card.appendChild(cancel);
 			card.appendChild(description);
 
-			cancelEdit(cancel, card, todo, project);
+			saveEditEvent(
+				card,
+				saveEdit,
+				todo,
+				project,
+				titleEdit,
+				dueDateEdit,
+				priorityEdit,
+				description
+			);
+			cancelEditEvent(cancel, card, todo, project);
 		});
 	};
 
