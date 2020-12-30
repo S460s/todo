@@ -137,6 +137,8 @@
 	width: 90%;
 	margin-top: 10vh;
 	display: none;
+	display: flex;
+	justify-content: space-around;
 }
 
 #todoForm {
