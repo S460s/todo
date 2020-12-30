@@ -12,6 +12,5 @@ This is the second time I am doing the project. The first time the code got pret
 
 \*Things Missing:
 
-1. The ability to see the description of the todo
 2. The ability to edit todos
 3. A good UI

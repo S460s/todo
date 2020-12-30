@@ -160,10 +160,13 @@
 
 #todoCard {
 	border: solid black 1px;
-	width: 90%;
+	width: 80%;
+	height: max-content;
 	margin-top: 20px;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
+	align-items: center;
 }
 
 #todoDelBtn {
@@ -174,5 +177,7 @@
 	cursor: pointer;
 }
 
-#doneCheck {
+#todoDescription {
+	margin-top: 20px;
+	width: 80%;
 }

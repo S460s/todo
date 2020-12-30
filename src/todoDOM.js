@@ -98,6 +98,10 @@ const todoDOM = (function () {
 			cancel.setAttribute("id", "todoDelBtn");
 			cancel.textContent = "cancel";
 
+			let description = document.createElement("textarea");
+			description.setAttribute("id", "todoDescription");
+			description.textContent = `Description: ${todo.description}`;
+
 			card.appendChild(titleEdit);
 			card.appendChild(dueDateEdit);
 			card.appendChild(priorityEdit);
@@ -110,6 +114,7 @@ const todoDOM = (function () {
 			});
 			card.appendChild(saveEdit);
 			card.appendChild(cancel);
+			card.appendChild(description);
 
 			cancelEdit(cancel, card, todo, project);
 		});
