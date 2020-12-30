@@ -52,11 +52,11 @@
 }
 
 #createProjectBtn {
-	color: white;
+	color: black;
 	font-weight: 900;
 }
 #cancelNewProject {
-	color: white;
+	color: black;
 	font-weight: 900;
 }
 
@@ -76,7 +76,7 @@
 	display: flex;
 	justify-content: flex-end;
 	margin-top: 20px;
-	border: 3px green solid;
+	border: 3px black solid;
 }
 
 #projectTitle {
