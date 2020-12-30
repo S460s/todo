@@ -3,7 +3,6 @@ import { selectProjectLogic } from "./selectProject";
 
 const projectsDOM = (function () {
 	const projectSection = document.getElementById("projectSection");
-	const addProjectBtn = document.getElementById("addProjectBtn");
 
 	const clearDiv = function (div) {
 		while (div.childNodes.length !== 0) {
@@ -12,20 +11,25 @@ const projectsDOM = (function () {
 	};
 
 	const deleteProjectEvent = function (btn, project, card) {
-		btn.addEventListener("click", () => {
+		btn.addEventListener("click", (e) => {
+			e.stopPropagation();
 			projectLogic.deleteProject(project);
 			card.remove();
+
+			if (!projectLogic.projectList[0]) {
+				selectProjectLogic.defaultProject();
+			}
 		});
 	};
 
 	const saveProjectEvent = function (btn, titleInput, project, card) {
-		btn.addEventListener("click", () => {
+		btn.addEventListener("click", (e) => {
+			e.stopPropagation();
 			if (titleInput.value) {
 				projectLogic.updateProject(project, titleInput.value);
 				clearDiv(card);
 				createElementParts(card, project);
-
-				addProjectBtn.style.display = "block";
+				selectProjectLogic.selectProject(project);
 			} else {
 				alert("Please enter a name for the project");
 			}
@@ -41,8 +45,7 @@ const projectsDOM = (function () {
 	};
 
 	const editProjectEvent = function (card, title, editBtn, delBtn, project) {
-		editBtn.addEventListener("click", (e) => {
-			e.stopPropagation();
+		editBtn.addEventListener("click", () => {
 			let editTitle = document.createElement("input");
 			editTitle.setAttribute("type", "text");
 			editTitle.setAttribute("id", "editProjectTitleInpu");
@@ -62,6 +65,7 @@ const projectsDOM = (function () {
 
 			saveProjectEvent(saveBtn, editTitle, project, card);
 			cancelProjectEdit(cancelBtn, card, project);
+			selectProjectLogic.selectProject(project);
 		});
 	};
 
@@ -91,11 +95,9 @@ const projectsDOM = (function () {
 		card.setAttribute("id", "projectCard");
 		projectSection.appendChild(card);
 		createElementParts(card, project);
-		console.log("display project, DOM project");
-		console.log(project);
 
 		card.addEventListener("click", () => {
-			selectProjectLogic.startLogic(project);
+			selectProjectLogic.selectProject(project);
 		});
 	};
 

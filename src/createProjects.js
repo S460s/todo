@@ -12,10 +12,10 @@ const projectLogic = (function () {
 	};
 
 	const handleAddProject = function () {
+		console.count("handleProject");
 		let newProject = new Project(titleInput.value, []);
 		projectList.push(newProject);
 		localStorageLogic.populateStorage(projectList, "projectList");
-		console.table(projectList);
 		return newProject;
 	};
 

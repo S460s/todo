@@ -24,16 +24,12 @@ const todoForm = (function () {
 		cancelBtn.addEventListener("click", handleHideForm);
 	};
 
-	const addTodo = function (callback) {
-		form.addEventListener("submit", callback);
-	};
-
 	const startForm = function () {
 		showPopUp();
 		hideForm();
 	};
 
-	return { startForm, addTodo };
+	return { startForm };
 })();
 
 export { todoForm };

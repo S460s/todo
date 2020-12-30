@@ -1,8 +1,6 @@
-class Project {
-	constructor(title, todoList) {
-		this.title = title;
-		this.todoList = todoList;
-	}
+function Project(title, todoList) {
+	this.title = title;
+	this.todoList = todoList;
 }
 
 export { Project };

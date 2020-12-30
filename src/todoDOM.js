@@ -36,7 +36,7 @@ const todoDOM = (function () {
 			card.setAttribute("id", "todoCard");
 			let title = titleE.value;
 			let date = dateE.value;
-			let priority = priorityE.value;
+			let priority = `${priorityE.value} Priority`;
 			let description = descE.value;
 			todoLogic.updateTodo(todo, title, date, priority, description);
 			clearDiv(card, 0);

@@ -4,7 +4,6 @@ const projectForm = (function () {
 	const form = document.getElementById("projectForm");
 
 	const handleShowPopUp = function () {
-		console.log("show");
 		form.style.cssText = "display: flex";
 		addProjectBtn.style.cssText = "display: none";
 	};

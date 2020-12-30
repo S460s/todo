@@ -11,9 +11,15 @@ const selectProjectLogic = (function () {
 	let currentProject;
 
 	const defaultProject = function () {
-		currentProjectTitle.textContent = projectLogic.projectList[0].title;
-		currentProject = projectLogic.projectList[0];
-		todoDOM.renderTodos(currentProject);
+		if (projectLogic.projectList[0]) {
+			console.count("defaultProject");
+			currentProjectTitle.textContent = projectLogic.projectList[0].title;
+			currentProject = projectLogic.projectList[0];
+			todoDOM.renderTodos(currentProject);
+		} else {
+			currentProjectTitle.textContent = "Looks like there are no projects left.";
+			addTodoBtn.style.display = "none";
+		}
 	};
 
 	const handleFormSubmission = function (e) {
@@ -33,13 +39,10 @@ const selectProjectLogic = (function () {
 		currentProjectTitle.textContent = project.title;
 		currentProject = project;
 		todoDOM.renderTodos(currentProject);
+		addTodoBtn.style.display = "block";
 	};
 
-	const startLogic = function (project) {
-		selectProject(project);
-	};
-
-	return { startLogic, defaultProject, submitProjectEvent };
+	return { selectProject, defaultProject, submitProjectEvent };
 })();
 
 export { selectProjectLogic };
