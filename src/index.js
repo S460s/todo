@@ -22,7 +22,13 @@ const appFlow = (function () {
 		form.reset();
 	};
 
+	const dateLimit = function () {
+		let today = new Date().toISOString().substr(0, 10);
+		dateInput.setAttribute("min", today);
+	};
+
 	const startApp = function () {
+		dateLimit();
 		checkStorage();
 		projectForm.startForm();
 		projectForm.addProject(handleAddProject);
