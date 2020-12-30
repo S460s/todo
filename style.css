@@ -170,8 +170,9 @@
 	cursor: pointer;
 }
 
-#todoInfo {
+#editTodoBtn {
 	cursor: pointer;
 }
+
 #doneCheck {
 }
