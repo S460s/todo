@@ -26,7 +26,8 @@
 
 /* projects side*/
 
-#projectsSectionTitle {
+#projectsSectionTitle,
+#todoSideTitle {
 	text-align: center;
 	color: #e07a5f;
 	font-size: 5vh;
@@ -61,15 +62,17 @@
 	padding: 5px;
 }
 
-#createProjectBtn {
+#createProjectBtn,
+#editTodoBtn,
+#saveEditedTodo {
 	color: black;
-	font-weight: 900;
 	background-color: #219ebc;
 	color: white;
 }
-#cancelNewProject {
+#cancelNewProject,
+#todoDelBtn,
+#todoDelBtn {
 	color: black;
-	font-weight: 900;
 	background-color: #f4978e;
 	color: white;
 }
@@ -196,7 +199,9 @@
 }
 
 #todoCard {
-	border: solid black 1px;
+	border: solid #e07a5f 2px;
+	padding: 10px;
+	border-radius: 10px;
 	width: 80%;
 	height: max-content;
 	margin-top: 20px;
@@ -213,22 +218,21 @@
 }
 
 #todoEditForm {
-	border: solid black 1px;
+	border: solid #e07a5f 3px;
 	width: 100%;
 	height: 100%;
 	margin-top: 20px;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 }
 
+#editTodoBtn,
+#saveEditedTodo,
 #todoDelBtn {
-	cursor: pointer;
-}
-
-#editTodoBtn {
-	cursor: pointer;
+	width: 80px;
+	font-size: 15px;
 }
 
 #todoDescription {
