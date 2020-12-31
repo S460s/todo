@@ -8,10 +8,11 @@
 	width: 100vw;
 	height: 100vh;
 	display: flex;
+	background-color: #edf6f9;
 }
 
 #projectSide {
-	border: 5px black solid;
+	border: 3px #83c5be solid;
 	flex: 1.5;
 	display: flex;
 	flex-wrap: nowrap;
@@ -19,7 +20,7 @@
 	align-items: center;
 }
 #todoSide {
-	border: 5px black solid;
+	border: 3px #83c5be solid;
 	flex: 2;
 }
 
@@ -27,12 +28,18 @@
 
 #projectsSectionTitle {
 	text-align: center;
+	color: #e07a5f;
+	font-size: 5vh;
 }
 
 #addProjectBtn {
 	width: 15em;
 	height: 3em;
 	margin-top: 5em;
+	background-color: #ffd166;
+	font-size: 15px;
+	color: black;
+	border: #e07a5f solid;
 }
 
 /*Project PopUp*/
@@ -43,21 +50,28 @@
 	display: none;
 	justify-content: flex-end;
 	margin-top: 5em;
+	padding-bottom: 10px;
+	border-bottom: 3px #e07a5f solid;
 }
 
 #projectTitleInput {
 	flex: 2;
 	justify-content: flex-start;
 	margin-right: 5%;
+	padding: 5px;
 }
 
 #createProjectBtn {
 	color: black;
 	font-weight: 900;
+	background-color: #219ebc;
+	color: white;
 }
 #cancelNewProject {
 	color: black;
 	font-weight: 900;
+	background-color: #f4978e;
+	color: white;
 }
 
 .projectFormBtn {
@@ -76,7 +90,9 @@
 	display: flex;
 	justify-content: flex-end;
 	margin-top: 20px;
-	border: 3px black solid;
+	border: 2px #e07a5f solid;
+	padding: 10px;
+	border-radius: 10px;
 }
 
 #projectTitle {
@@ -87,15 +103,19 @@
 
 #deleteProjectBtn,
 #cancelEditProjectBtn {
-	font-size: 10px;
+	font-size: 15px;
 	flex: 1;
 	margin-left: 20px;
+	background-color: #f4978e;
+	color: white;
 }
 
 #projectEditBtn,
 #saveProjectTitleBtn {
-	font-size: 10px;
+	font-size: 15px;
 	flex: 1;
+	background-color: #219ebc;
+	color: white;
 }
 
 #projectEditBtn,
@@ -110,6 +130,7 @@
 	height: 20px;
 	margin-right: 10px;
 	flex: 2;
+	padding-left: 5px;
 }
 
 /*Todo Side*/
@@ -117,11 +138,19 @@
 #currentProject {
 	text-align: center;
 	margin-top: 20px;
+	color: #006d77;
 }
 
 #addTodoBtn {
 	display: block;
 	margin: 10vh auto;
+	width: 15em;
+	height: 3em;
+	margin-top: 5em;
+	background-color: #ffd166;
+	font-size: 15px;
+	color: black;
+	border: #e07a5f solid;
 }
 
 #todoSideTitle {
@@ -134,19 +163,28 @@
 	margin: auto;
 	width: 90%;
 	margin-top: 10vh;
+	flex-wrap: nowrap;
 	display: none;
 	justify-content: space-around;
 }
 
 #todoForm {
 	display: flex;
-	justify-content: space-between;
 }
 #todoBtns {
 	display: flex;
 }
+#createNewTodo {
+	background-color: #219ebc;
+	color: white;
+	font-size: 15px;
+}
+
 #cancelNewTodo {
 	margin-left: 10px;
+	font-size: 15px;
+	background-color: #f4978e;
+	color: white;
 }
 
 /*Todo card*/
