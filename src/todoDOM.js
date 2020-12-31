@@ -121,7 +121,8 @@ const todoDOM = (function () {
 
 			let description = document.createElement("textarea");
 			description.setAttribute("id", "todoDescription");
-			description.textContent = `Description: ${todo.description}`;
+			description.setAttribute("placeholder", "Description");
+			description.textContent = todo.description;
 
 			card.appendChild(editForm);
 			editForm.appendChild(titleEdit);
