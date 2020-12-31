@@ -7,7 +7,12 @@ const selectProjectLogic = (function () {
 	const addTodoBtn = document.getElementById("addTodoBtn");
 	const todoForm = document.getElementById("todoForm");
 	const popUp = document.getElementById("todoPopUp");
-
+	const todoListDiv = document.getElementById("todoList");
+	const clearDiv = function (div, elementNum) {
+		while (div.childNodes.length !== elementNum) {
+			div.removeChild(div.lastChild);
+		}
+	};
 	let currentProject;
 
 	const defaultProject = function () {
@@ -17,8 +22,9 @@ const selectProjectLogic = (function () {
 			currentProject = projectLogic.projectList[0];
 			todoDOM.renderTodos(currentProject);
 		} else {
+			clearDiv(todoListDiv, 0);
 			currentProjectTitle.innerText =
-				'Looks like there are no projects. You can create one by clicking "Add new Project" \n\n (Excuse the bad UI, I will try to make it better later)';
+				'Looks like there are no projects. You can create one by clicking "Add new Project"';
 			addTodoBtn.style.display = "none";
 		}
 	};

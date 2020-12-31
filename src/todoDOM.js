@@ -57,13 +57,13 @@ const todoDOM = (function () {
 		priority.setAttribute("id", "todoPriorityP");
 		priority.textContent = todo.priority;
 
-		let editBtn = document.createElement("p");
+		let editBtn = document.createElement("button");
 		editBtn.setAttribute("id", "editTodoBtn");
-		editBtn.textContent = "edit";
+		editBtn.textContent = "Edit";
 
-		let delBtn = document.createElement("p");
+		let delBtn = document.createElement("button");
 		delBtn.setAttribute("id", "todoDelBtn");
-		delBtn.textContent = "x";
+		delBtn.textContent = "Delete";
 
 		let doneCheckbox = document.createElement("input");
 		doneCheckbox.setAttribute("type", "checkbox");
@@ -111,13 +111,13 @@ const todoDOM = (function () {
 			priorityEdit.setAttribute("id", "todoPriorityEdit");
 			let priorityOptions = ["High", "Medium", "Low"];
 
-			let saveEdit = document.createElement("p");
+			let saveEdit = document.createElement("button");
 			saveEdit.setAttribute("id", "saveEditedTodo");
 			saveEdit.textContent = "save";
 
-			let cancel = document.createElement("p");
+			let cancel = document.createElement("button");
 			cancel.setAttribute("id", "todoDelBtn");
-			cancel.textContent = "cancel";
+			cancel.textContent = "Cancel";
 
 			let description = document.createElement("textarea");
 			description.setAttribute("id", "todoDescription");
