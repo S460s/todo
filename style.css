@@ -23,7 +23,6 @@
 	border: 3px #83c5be solid;
 	flex: 2;
 }
-
 /* projects side*/
 
 #projectsSectionTitle,
@@ -56,7 +55,6 @@
 }
 
 #projectTitleInput {
-	flex: 2;
 	justify-content: flex-start;
 	margin-right: 5%;
 	padding: 5px;
@@ -149,7 +147,6 @@
 	margin: 10vh auto;
 	width: 15em;
 	height: 3em;
-	margin-top: 5em;
 	background-color: #ffd166;
 	font-size: 15px;
 	color: black;
@@ -238,4 +235,43 @@
 #todoDescription {
 	margin-top: 20px;
 	width: 100%;
+}
+
+@media (max-width: 500px) {
+	#content {
+		flex-direction: column;
+	}
+	#projectCard {
+		width: 30vh;
+	}
+	#projectForm {
+		width: 40vh;
+	}
+	#todoForm {
+		display: flex;
+		flex-direction: column;
+		width: 60vh;
+	}
+	#todoForm > input,
+	#todoForm > select {
+		height: 30px;
+		margin-bottom: 20px;
+	}
+	#todoForm > div {
+		margin: auto;
+	}
+
+	#currentProject {
+		font-size: 30px;
+	}
+	#todoEditForm {
+		width: 100%;
+	}
+	#todoEditForm > input {
+		width: 40vh;
+	}
+	#todoCard {
+		display: flex;
+		width: 90vw;
+	}
 }
