@@ -162,7 +162,7 @@
 #todoPopUp {
 	margin: auto;
 	width: 90%;
-	margin-top: 10vh;
+	margin: 11vh;
 	flex-wrap: nowrap;
 	display: none;
 	justify-content: space-around;
