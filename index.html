@@ -11,26 +11,39 @@
 			<div id="projectSide">
 				<h1 id="projectsSectionTitle">Projects</h1>
 
-				<div id="projectSection"></div>
 				<div id="projectPopUp">
 					<form id="projectForm" action="">
-						<input id="projectTitleInput" type="text" placeholder="Project Title" required />
-						<button id="createProjectBtn" class="projectFormBtn" type="submit">Add</button>
-						<button id="cancelNewProject" class="projectFormBtn" type="button">Cancel</button>
+						<input
+							id="projectTitleInput"
+							type="text"
+							placeholder="Project Title"
+							required
+						/>
+						<button id="createProjectBtn" class="projectFormBtn" type="submit">
+							Add
+						</button>
+						<button id="cancelNewProject" class="projectFormBtn" type="button">
+							Cancel
+						</button>
 					</form>
 				</div>
 
 				<button id="addProjectBtn">Add new project</button>
+				<div id="projectSection"></div>
 			</div>
 
 			<div id="todoSide">
 				<h1 id="todoSideTitle">Todos</h1>
 				<h2 id="currentProject"></h2>
-				<div id="todoList"></div>
 				<button id="addTodoBtn">New Todo</button>
 				<div id="todoPopUp">
 					<form id="todoForm" action="">
-						<input type="text" placeholder="Title" id="todoTitleInput" required />
+						<input
+							type="text"
+							placeholder="Title"
+							id="todoTitleInput"
+							required
+						/>
 						<input type="date" id="dateInput" required />
 						<select name="" id="priorities">
 							<option value="high">High Priority</option>
@@ -44,6 +57,7 @@
 						</div>
 					</form>
 				</div>
+				<div id="todoList"></div>
 			</div>
 		</div>
 
