@@ -79,7 +79,8 @@ const todoDOM = (function () {
 		doneCheckbox.setAttribute('id', 'doneCheck');
 		doneCheckbox.checked = todo.done;
 
-		doneCheckbox.addEventListener('change', () => {
+		doneCheckbox.addEventListener('click', () => {
+			console.log(todo.done);
 			todoLogic.handleChecked(doneCheckbox, todo);
 		});
 

@@ -28,7 +28,8 @@ const todoLogic = (function () {
 	};
 
 	const handleChangeState = function (todo, box) {
-		todo.done = box.value;
+		todo.done = box.checked;
+		console.log(todo.done);
 		localStorageLogic.populateStorage(projectLogic.projectList, 'projectList');
 	};
 
